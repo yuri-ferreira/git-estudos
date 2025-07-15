@@ -1,0 +1,19 @@
+name: 01 - Building Blocks
+
+on: push
+
+jobs:
+  echo-ola:
+    runs-on: unbuntu-latest
+    steps:
+      - name: Ola mundo
+        run: echo "Hello, world!"
+  echo-tchau:
+    runs-on: unbuntu-latest
+    steps:
+      - name: Erro
+        run: |
+          echo "Algum erro"
+          exit;
+      - name: Tchauu
+        run: echo "Tchauuu"
