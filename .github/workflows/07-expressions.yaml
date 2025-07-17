@@ -12,7 +12,7 @@ jobs:
   echo:
     runs-on: ubuntu-latest
     steps:
-      - name: "[debug] Print ao iniciar data"
+      - name: "[debug] Print dados de inicialização"
         if: ${{inputs.debug}}
         run: |
           echo "Triggerado por: ${{github.event_name}}"
