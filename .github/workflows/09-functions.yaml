@@ -1,0 +1,20 @@
+name: 09 - Functions
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  echo01:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Falha
+        run: exit 1
+      - name: Skip
+        run: echo "Só vou aparecer caso a etapa anterior seja concluída com sucesso."
+      - name: Executar
+        if: ${{failure()}}
+        run: echo "Só vou aparecer caso alguma das etapas anteriores falhe."
+      - name: Executar2
+        if: ${{!cancelled()}}
+        run: echo "Vou aparecer sempre, menos quando o workflow for cancelado :)"
