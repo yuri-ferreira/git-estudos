@@ -13,7 +13,7 @@ jobs:
       JOB_VAR: "Aoba mundo! sou uma var job"
       SOBRESCRITA_VAR: "Aoba mundo! fui sobrescrita. JOB LEVEL"
     steps:
-      - name: Print Env Var
+      - name: Print Environment Variable
         env:
           STEP_VAR: "Aoba mundo! sou uma var step"
           STEP_VAR2: "Aoba mundo! sou outra var step"
@@ -22,6 +22,7 @@ jobs:
           echo "Step Environment Variable 2: ${{env.STEP_VAR2}}"
           echo "Job Environment Variable: ${{env.JOB_VAR}}"
           echo "Workflow Environment Variable: ${{env.WORKFLOW_VAR}}"
+          echo "Step Environment Variable: ${{env.SOBRESCRITA_VAR}}"
       - name: Sobrescrever variável nível JOB
         env:
           SOBRESCRITA_VAR: "Aoba mundo! fui sobrescrita. STEP LEVEL"
