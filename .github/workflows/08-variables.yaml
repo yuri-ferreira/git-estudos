@@ -1,0 +1,29 @@
+name: 08 - Variables
+
+on:
+  push:
+  workflow_dispatch:
+env:
+  WORKFLOW_VAR: "Aoba mundo! sou uma var workflow"
+  SOBRESCRITA_VAR: "Aoba mundo! Serei sobrescrita em algum momento"
+jobs:
+  echo:
+    runs-on: ubuntu-latest
+    env:
+      JOB_VAR: "Aoba mundo! sou uma var job"
+      SOBRESCRITA_VAR: "Aoba mundo! fui sobrescrita. JOB LEVEL"
+    steps:
+      - name: Print Env Var
+        env:
+          STEP_VAR: "Aoba mundo! sou uma var step"
+          STEP_VAR2: "Aoba mundo! sou outra var step"
+        run: |
+          echo "Step Environment Variable: ${{env.STEP_VAR}}"
+          echo "Step Environment Variable 2: ${{env.STEP_VAR2}}"
+          echo "Job Environment Variable: ${{env.JOB_VAR}}"
+          echo "Workflow Environment Variable: ${{env.WORKFLOW_VAR}}"
+      - name: Sobrescrever variável nível JOB
+        env:
+          SOBRESCRITA_VAR: "Aoba mundo! fui sobrescrita. STEP LEVEL"
+        run: |
+          echo "Step Environment Variable: ${{env.SOBRESCRITA_VAR}}"
